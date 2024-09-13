@@ -34,14 +34,6 @@ export type INewTransactionResponse = {
         qr_content: string
         qrcode_url: string
     } & IBaseTransactionsResponse & IBaseTransactionResponse
-    service: {
-        id: string
-        type: string
-        name: string
-        minimum: string
-        maximum: string
-        settlement: string
-    }
 } & IBaseResponse
 
 export type IStatusTransactionResponse = {
@@ -50,6 +42,14 @@ export type IStatusTransactionResponse = {
         via: string
         return_url: string
     } & IBaseTransactionsResponse & IBaseTransactionResponse
+    service: {
+        id: string
+        type: string
+        name: string
+        minimum: string
+        maximum: string
+        settlement: string
+    }
 } & IBaseResponse
 
 export type ICancelTransactionResponse = {
