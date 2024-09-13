@@ -1,6 +1,9 @@
 🚀 fast and easy request to [PayDisini](https://paydisini.co.id/)
-
-# Example Usage
+# Installation
+```
+npm install paydisini
+```
+# Usage
 ```js
 const { PayDisini } = require("paydisini");
 const generateUniqueId = require("generate-unique-id");
