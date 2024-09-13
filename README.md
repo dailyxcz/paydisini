@@ -6,7 +6,6 @@ npm install paydisini
 # Usage
 ```js
 const { PayDisini } = require("paydisini");
-const generateUniqueId = require("generate-unique-id");
 
 (async () => {
 	const payDisini = new PayDisini({ key: "YOUR_API_KEY" });
