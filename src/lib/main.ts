@@ -5,10 +5,10 @@ import { ICancelTransactionResponse, INewTransactionResponse, IOptions, IPayment
 
 export class PayDisini {
 
-    private key: string;
+    private options: IOptions;
     private baseUrl: string = "https://paydisini.co.id/api/";
     constructor(options: IOptions) {
-        this.key = options.key;
+        this.options = options;
     }
 
     private md5(input: string): string {
@@ -31,8 +31,8 @@ export class PayDisini {
 
     private async request(requestType: IRequestSignType, payload?: IRequestPayload) {
         const payloads = new FormData();
-        payloads.append("key", this.key);
-        payloads.append("signature", this.md5(`${this.key}${this.sign_value(payload)[requestType]}`));
+        payloads.append("key", this.options.key);
+        payloads.append("signature", this.md5(`${this.options.key}${this.sign_value(payload)[requestType]}`));
         payloads.append("request", requestType);
         for (const key in payload) {
             if (payload[key as IRequestPayloadType])
@@ -42,7 +42,7 @@ export class PayDisini {
             method: "POST",
             url: this.baseUrl,
             data: payloads,
-            timeout: 5000,
+            proxy: this.options.proxy,
         });
 
         return response.data;

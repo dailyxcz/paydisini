@@ -1,5 +1,18 @@
+
+type IProtocol = "http" | "https"
+export type IProxyOptions = {
+    host: string
+    port: number
+    protocol: IProtocol
+    auth?: {
+        username: string
+        password: string
+    }
+}
+
 export type IOptions = {
     key: string
+    proxy?: IProxyOptions
 };
 
 type IStatus = "ON" | "OFF";
